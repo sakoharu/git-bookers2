@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
-  
+
   get 'users/show'
   get 'users/edit'
-  get 'books/new'
-  post 'books' => 'books#create'
   get 'homes/top' => 'homes#top'
   get 'homes/about' => 'homes#about', as: 'about'
   devise_for :users
