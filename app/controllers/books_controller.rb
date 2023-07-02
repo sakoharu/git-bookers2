@@ -1,5 +1,11 @@
 class BooksController < ApplicationController
   def new
-    @books_image =Book.new
+    @book_image = Book.new
+  end
+
+  def index
+  end
+
+  def show
   end
 end
