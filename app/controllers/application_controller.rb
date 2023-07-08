@@ -3,6 +3,15 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     about_path
+    @user = User.new(user_parameter)
+    if @user.save
+      flash[:notice]= "Signed in successfully."
+      redirect_to book_path(user.id)
+    else
+     render after_sign_in_path_for(resource)
+     about_path
+    end
+
   end
 
   def after_sign_out_path_for(resource)
