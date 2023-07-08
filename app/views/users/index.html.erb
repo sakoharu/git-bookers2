@@ -1,0 +1,35 @@
+<p id="notice"></p>
+  <div class="container">
+  <div class="row">
+   <div class="col-md-3">
+<%= render 'books/side', user: @user, book: @book_new %>
+
+
+ <div class="col-md-8 offset-md-1">
+      <h2>Books</h2>
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr>
+           <th>image</th>
+           <th>name</th>
+           <th clospan="3"></th>
+          </tr>
+        </thead>
+
+       <tbody>
+          <% @users.each do |user| %>
+         <tr>
+           <td>
+              <%= image_tag @user.get_profile_image(100,100) %>
+           </td>
+          <td>
+
+          </td>
+
+         </tr>
+         <% end %>
+       </tbody>
+      </table>
+   　</div>
+  </div>
+ </div>
