@@ -3,7 +3,7 @@
   <div class="row">
    <div class="col-md-3">
 <%= render 'books/side', user: @user, book: @book_new %>
-
+</div>
 
  <div class="col-md-8 offset-md-1">
       <h2>Books</h2>
@@ -19,12 +19,15 @@
        <tbody>
           <% @users.each do |user| %>
          <tr>
-           <td>
+           <th>
               <%= image_tag @user.get_profile_image(100,100) %>
-           </td>
-          <td>
-
-          </td>
+           </th>
+          <th>
+             <%= @user.name %>
+          </th>
+          <th>
+              <%= link_to 'show', user_path(current_user) %>
+          </th>
 
          </tr>
          <% end %>
