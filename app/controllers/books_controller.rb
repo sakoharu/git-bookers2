@@ -28,6 +28,8 @@ class BooksController < ApplicationController
     book.desutroy
     redirect_to '/books'
   end
+  
+ 
 
   private
   def book_params

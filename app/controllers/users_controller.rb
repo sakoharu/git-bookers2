@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = current_user
   end
 
   def index
@@ -15,6 +16,14 @@ class UsersController < ApplicationController
      @user = current_user
   end
 
+  def destroy
+    book = Book.find(params[:id])
+    book.desutroy
+    redirect_to '/books'
+  end
 
-
+  private
+  def book_params
+    params.require(:book).permit(:title, :body)
+  end
 end
