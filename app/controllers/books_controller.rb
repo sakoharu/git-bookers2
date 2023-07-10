@@ -5,11 +5,14 @@ class BooksController < ApplicationController
   end
 
   def update
+    
     book = Book.find(params[:id])
     book.update(book_params)
     if book.save
       flash[:notice] = "You have updated book successfully."
       redirect_to book_path
+    else
+      render :show
     end
   end
 
