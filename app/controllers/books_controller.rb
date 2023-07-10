@@ -5,7 +5,7 @@ class BooksController < ApplicationController
   end
 
   def update
-    
+
     book = Book.find(params[:id])
     book.update(book_params)
     if book.save
@@ -53,5 +53,4 @@ class BooksController < ApplicationController
     params.require(:book).permit(:title, :body)
   end
 end
-
 
