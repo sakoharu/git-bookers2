@@ -1,15 +1,15 @@
 class UsersController < ApplicationController
 
 
-  def create
-    @user = User.new(user_params)
-  end
 
 
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
+    if @user.save
+    flash[:notice] = "You have updated user successfully."
     redirect_to user_path(@user.id)
+    end
   end
 
   def show
@@ -28,11 +28,6 @@ class UsersController < ApplicationController
      @user = current_user
   end
 
-  def destroy
-    book = Book.find(params[:id])
-    book.desutroy
-    redirect_to '/books'
-  end
 
   private
   def user_params
