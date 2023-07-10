@@ -2,31 +2,31 @@
  <p id="notice"></p>
   <div class="container">
     <div class= "row">
-       <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+  <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
        <h2>User info</h2>
 
        <%= form_with model: @user do |f| %>
 
-         <div class="form-group">
-             <label for="user_name">Name</label>
-         </div>
-             <%= f.text_field :name, autofocus: true, id:"userName", placeholder:"名前"%>
+       <div class="form-group">
+         <label for="user_name">Name</label><ul>
+         <%= f.text_field :name, autofocus: true, id:"userName", placeholder:"名前"%>
+       </div>
 
+       <div class="form-group">
+         <label for="user_image">Image</label><ul>
+         <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %>
+       </div>
 
-        <div class="form-group">
-             <label for="user_image">Image</label>
-         </div>
-             <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %>
-
-
-         <div class="form-group">
-             <label for="user_introduction">Introduction</label>
-         </div>
-             <%= f.text_area :body %>
-     <% end %>
+       <div class="form-group">
+         <label for="user_introduction">Introduction</label><ul>
+         <%= f.text_area :introduction %>
+       </div>
 
          <div class="form-group">
-          <%= link_to 'Update User', user_path(@user.id), class:"btn btn-secondary"%>
+          <!--%= link_to 'Update User', user_path(@user.id), class:"btn btn-secondary"%-->
+          <%= f.submit %>
         </div>
- </div>
+     <% end %>
+      </div>
+　 </div>
 </div>
