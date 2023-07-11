@@ -9,10 +9,11 @@ class BooksController < ApplicationController
     book = Book.find(params[:id])
     book.update(book_params)
     if book.save
-      flash[:notice] = "You have updated book successfully."
+      flash[:notice] = "errors prohibited this obj from being saved:"
       redirect_to book_path
     else
-      render :show
+      @book = Book.find(params[:id])
+      render :edit
     end
   end
 
